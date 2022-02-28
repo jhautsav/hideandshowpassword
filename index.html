@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap ICON -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>Hello, world!</title>
+  </head>
+  <style>
+      header
+      {
+          background-color:rgb(242,242,242);
+      }
+      .row
+      {
+          width: 100vh;
+          height: 100vh;
+       
+          margin: auto;
+          justify-content: center;
+          align-items: center;
+      }
+      input[type="password"]
+      {
+          height: 50px ;
+       }
+      #btn
+      {
+          position: relative;
+          top:-40px;
+          left:500px;
+      }
+      input::placeholder{
+        color:orange !important;
+      }
+      button
+      {
+          border:none;
+      }
+      /* bi-eye-slash
+      bi-eye-fill */
+  </style>
+  <body> 
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="head">
+                        <h1 class="text-danger"> This is for add and remove attributes</h1>
+                    </div>
+                    <div class="passinput">
+                        <label for="pass"  class="text-primary" >Enter your Password</label>
+                        <input type="password" class="form-control mt-3" id="pass" placeholder="Enter your password here" />
+                        <button id="btn"><i class="bi bi-eye"></i></button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+    <script>
+        let pass=document.querySelector('#pass');
+        let btn=document.querySelector('#btn');
+        //this is the function for change the icon
+        function img()
+        {
+            if(pass.getAttribute('type')==='password')
+            {
+                
+                btn.childNodes[0].classList.replace('bi-eye','bi-eye-slash')
+            }
+            else{
+               
+                btn.childNodes[0].classList.replace('bi-eye-slash','bi-eye')
+            } 
+        }
+        //this is the functionality for acheive show and hide password
+        btn.addEventListener('click',(e)=>{
+            
+            if(pass.getAttribute('type')==='password')
+            {
+                img()
+                pass.setAttribute('type', 'text');
+               
+            }
+            else{
+                img()
+                pass.setAttribute('type','password')
+              
+            }
+            
+             
+             
+             console.log(btn.childNodes[0]);
+        })
+        btn.addEventListener('mouseleave',()=>{
+             pass.setAttribute('type','password');
+             btn.childNodes[0].classList.replace('bi-eye-slash','bi-eye')
+        })
+     
+    </script>
+ 
+  </body>
+</html>
